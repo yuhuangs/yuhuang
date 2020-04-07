@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <style>
+        #outbox{
+
+            position:absolute;
+            top:30%;
+            left:28%;
+            width:280px;
+            height:280px;
+            background-color: rgba(245, 237, 251, 0.2);
+            border:double;
+            border-color:rgba(152, 233, 218,0.5);
+            border-width:4px;
+            border-radius:10px;
+            -moz-border-radius:10px;
+        }
+        body{
+            background-image:url("images/2.jpg");
+            background-attachment:fixed;
+            background-position:center;
+            background-size:100%;
+        }
+        #title{
+            position:relative;
+            left:42%;
+            font-family:Arial;
+            color:#808080;
+            font-size:15px;
+        }
+        #form_box {
+            position: relative;
+
+            left: 15%;
+            width: 80%;
+            height: 70%;
+        }
+        .inPut {
+            -webkit-border-radius:3px;
+            -moz-border-radius:3px;
+            width:170px;
+        }
+        #last {
+            border-color: rgba(152, 233, 218,0.5);
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            width:137px;
+        }
+        .register{
+            position:relative;
+            background-color:aliceblue;
+            border-radius:3px;
+            left:25%;
+        }
+    </style>
+</head>
+<body>
+<div id="outbox">
+
+    <h1><span id="title">注册界面</span></h1>
+    <div id="form_box">
+        <form method="post" action="register.php">
+            昵称:<input class="inPut" type="text" name="Q_name" placeholder="昵称" required />
+            <p>学号:<input class="inPut" type="text" name="StudyNum" placeholder="学号" required /></p>
+            <p>密码:<input id="pw" class="inPut" type="password" name="Password" placeholder="密码" required /></p>
+            <p>确认密码:<input placeholder="确认密码" name="Repass" type="password"></p>
+            <input class="register" type="submit" onkeyup="pw_recheck()" name="提交注册" value="提交注册">
+            <input class="register" type="reset" name="重新填写" value="重新填写">
+        </form>
+    </div>
+
+</div>
+<script type="text/javascript">
+    function pw_recheck() {
+        var password=document.getElementById("pw").value;
+        var repass = document.getElementsByName("Repass").value;
+        if(repass == ""){
+            alert("请确认密码！");
+
+            return false;
+        }else if(password!=repass){
+            alert('两次密码输入不一致！请重新输入！');
+            return false;
+        }else return true;
+    }
+</script>
+</body>
+</html>
